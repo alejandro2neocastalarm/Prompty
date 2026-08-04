@@ -277,7 +277,7 @@ function PromptyScreen() {
             <img
               src={logoAsset.url}
               alt="Prompty"
-              className="h-9 w-9 rounded-xl object-cover"
+              className="h-9 w-9 object-contain"
               width={36}
               height={36}
             />
@@ -326,7 +326,7 @@ function PromptyScreen() {
             src={logoAsset.url}
             alt=""
             aria-hidden
-            className="h-20 w-20 rounded-3xl object-cover sm:h-24 sm:w-24"
+            className="h-20 w-20 object-contain sm:h-24 sm:w-24"
           />
           <h1 className="mt-6 text-3xl font-bold leading-tight tracking-tight sm:text-[40px]">
             {t.tagline1} <span className="brand-text">{t.taglineHighlight}</span>
