@@ -17,7 +17,7 @@ import {
   X,
 } from "lucide-react";
 
-import logoAsset from "@/assets/prompty-logo.png.asset.json";
+import logoAsset from "@/assets/prompty-mark.png.asset.json";
 import { DICTS, LANGUAGES, type LangCode } from "@/lib/i18n";
 import { DEFAULT_MODEL, MODELS } from "@/lib/models";
 import { generateFinalPrompt, getClarifyingQuestions } from "@/lib/prompty.functions";
