@@ -253,6 +253,34 @@ function PromptyScreen() {
 
   const busy = stage !== "idle";
 
+  // Confetti when a prompt is ready
+  const celebrated = useRef("");
+  useEffect(() => {
+    if (!result || celebrated.current === result) return;
+    celebrated.current = result;
+    let cancelled = false;
+    void import("canvas-confetti").then(({ default: confetti }) => {
+      if (cancelled) return;
+      const colors = ["#8b5cf6", "#6366f1", "#3b82f6", "#a78bfa"];
+      confetti({ particleCount: 90, spread: 70, origin: { y: 0.7 }, colors, scalar: 0.9 });
+      setTimeout(
+        () =>
+          confetti({
+            particleCount: 60,
+            spread: 100,
+            startVelocity: 35,
+            origin: { y: 0.6 },
+            colors,
+            scalar: 0.8,
+          }),
+        220,
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [result]);
+
   return (
     <div
       className="relative min-h-screen"
