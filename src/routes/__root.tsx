@@ -81,16 +81,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Genera prompts optimizados para GPT-5, Claude, Gemini, Grok y más. Sube imágenes o archivos y deja que la IA cree el prompt ideal.",
+          "Escribe tu idea, adjunta imágenes o archivos y Prompty genera el prompt ideal para GPT-5, Claude, Gemini, Grok y más.",
       },
-      { property: "og:title", content: "Prompty — El prompt perfecto para cada modelo de IA" },
+      { property: "og:title", content: "Prompty — Convierte tu idea en el prompt perfecto" },
       {
         property: "og:description",
         content:
-          "Describe tu idea, adjunta archivos y obtén un prompt optimizado para el modelo de IA que elijas.",
+          "Escribe tu idea, adjunta imágenes o archivos y Prompty genera el prompt ideal para GPT-5, Claude, Gemini, Grok y más.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Prompty — Convierte tu idea en el prompt perfecto" },
+      { name: "twitter:description", content: "Escribe tu idea, adjunta imágenes o archivos y Prompty genera el prompt ideal para GPT-5, Claude, Gemini, Grok y más." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b54f06da-95a4-4692-82dd-7d42c7994697/id-preview-c656f8ae--ac159554-447c-4e3d-b1d8-47212a80710e.lovable.app-1785934663467.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b54f06da-95a4-4692-82dd-7d42c7994697/id-preview-c656f8ae--ac159554-447c-4e3d-b1d8-47212a80710e.lovable.app-1785934663467.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

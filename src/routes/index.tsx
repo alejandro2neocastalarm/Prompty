@@ -36,10 +36,10 @@ export const Route = createFileRoute("/")({
         content:
           "Escribe tu idea, adjunta imágenes o archivos y Prompty genera el prompt ideal para GPT-5, Claude, Gemini, Grok y más.",
       },
-      { property: "og:title", content: "Prompty — El prompt perfecto para cada modelo de IA" },
+      { property: "og:title", content: "Prompty — Convierte tu idea en el prompt perfecto" },
       {
         property: "og:description",
-        content: "Generador de prompts multimodelo con preguntas guiadas, modo oscuro e idiomas.",
+        content: "Escribe tu idea, adjunta imágenes o archivos y Prompty genera el prompt ideal para GPT-5, Claude, Gemini, Grok y más.",
       },
     ],
   }),
