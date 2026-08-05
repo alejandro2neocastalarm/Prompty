@@ -1,15 +1,56 @@
-# Prompty
-## Prompty is a website where you will be able to generate prompts with AI, you can upload files, photos etc... You have an AI model selector, and the web asks you questions to improve the final prompt, you have a button to consult your prompts, change to dark / light mode and change the language. Our Instagram is Prompty_es and we offer customer service by DM 24 hours a day, we also have customer service email: Prompty@gmx.com
 
-## Access prompty now 👉Promptyapp.lovable.app
+<div align="center">
 
-## Development
+<img src="https://raw.githubusercontent.com/TU_USUARIO/TU_REPO/main/public/prompty-logo.png" width="180"/>
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+# 🚀 Prompty
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+### The website where prompts become reality.
+
+Generate AI-optimized prompts for GPT, Claude, Gemini, Grok, DeepSeek and many more.
+
+🌐 https://promptyapp.lovable.app
+
+</div>
+
+---
+
+## ✨ Features
+
+- 🤖 AI Model Selector
+- 💬 Smart Follow-up Questions
+- 📄 File Uploads
+- 🖼️ Image Uploads
+- 🌍 Multi-language
+- 🌙 Dark / Light Mode
+- 📜 Prompt History
+- ⚡ Lightning Fast
+- 📱 Responsive Design
+
+---
+
+## 🛠️ Built With
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,nodejs,vercel,git,github,vscode" />
+</p>
+
+---
+
+## 📊 Project Status
+
+🟢 Currently under active development
+
+🚀 Coming Soon
+
+---
+
+## 📲 Contact
+
+Instagram → **@Prompty_es**
+
+📧 **Prompty@gmx.com**
+
+---
+
+⭐ Don't forget to star the repository!
