@@ -602,7 +602,17 @@ function PromptyScreen() {
         {result && (
           <section ref={resultRef} className="glass animate-rise mt-6 rounded-3xl p-5">
             <div className="flex items-center justify-between gap-3">
-              <h2 className="text-base font-semibold">{t.resultTitle}</h2>
+              <div className="flex items-center gap-2.5">
+                <img
+                  src={logoAsset.url}
+                  alt="Prompty"
+                  className="animate-rise h-9 w-9 object-contain"
+                  width={36}
+                  height={36}
+                />
+                <h2 className="text-base font-semibold">{t.resultTitle}</h2>
+              </div>
+
               <div className="flex gap-2">
                 <button
                   type="button"
