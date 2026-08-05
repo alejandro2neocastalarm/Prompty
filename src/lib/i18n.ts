@@ -35,6 +35,10 @@ export type Dict = {
   historyEmpty: string;
   clear: string;
   dropHere: string;
+  mic: string;
+  micStop: string;
+  micTranscribing: string;
+  errorMic: string;
   errorEmpty: string;
   errorGeneric: string;
   errorRate: string;
@@ -73,6 +77,10 @@ export const DICTS: Record<LangCode, Dict> = {
     historyEmpty: "Todavía no hay prompts guardados.",
     clear: "Borrar",
     dropHere: "Suelta tus archivos aquí",
+    mic: "Dictar",
+    micStop: "Detener",
+    micTranscribing: "Transcribiendo…",
+    errorMic: "No se pudo usar el micrófono.",
     errorEmpty: "Escribe primero qué quieres que haga la IA.",
     errorGeneric: "Algo ha fallado. Inténtalo de nuevo.",
     errorRate: "Demasiadas peticiones. Espera unos segundos.",
@@ -109,6 +117,10 @@ export const DICTS: Record<LangCode, Dict> = {
     historyEmpty: "No saved prompts yet.",
     clear: "Clear",
     dropHere: "Drop your files here",
+    mic: "Dictate",
+    micStop: "Stop",
+    micTranscribing: "Transcribing…",
+    errorMic: "Could not use the microphone.",
     errorEmpty: "First describe what you want the AI to do.",
     errorGeneric: "Something went wrong. Try again.",
     errorRate: "Too many requests. Wait a few seconds.",
@@ -145,6 +157,10 @@ export const DICTS: Record<LangCode, Dict> = {
     historyEmpty: "Aucun prompt enregistré.",
     clear: "Effacer",
     dropHere: "Déposez vos fichiers ici",
+    mic: "Dicter",
+    micStop: "Arrêter",
+    micTranscribing: "Transcription…",
+    errorMic: "Impossible d'utiliser le micro.",
     errorEmpty: "Décrivez d'abord ce que l'IA doit faire.",
     errorGeneric: "Une erreur est survenue. Réessayez.",
     errorRate: "Trop de requêtes. Patientez quelques secondes.",
@@ -181,6 +197,10 @@ export const DICTS: Record<LangCode, Dict> = {
     historyEmpty: "Ainda não há prompts guardados.",
     clear: "Limpar",
     dropHere: "Largue os ficheiros aqui",
+    mic: "Ditar",
+    micStop: "Parar",
+    micTranscribing: "A transcrever…",
+    errorMic: "Não foi possível usar o microfone.",
     errorEmpty: "Descreva primeiro o que quer que a IA faça.",
     errorGeneric: "Algo correu mal. Tente novamente.",
     errorRate: "Demasiados pedidos. Aguarde uns segundos.",
@@ -217,6 +237,10 @@ export const DICTS: Record<LangCode, Dict> = {
     historyEmpty: "Noch keine gespeicherten Prompts.",
     clear: "Löschen",
     dropHere: "Dateien hier ablegen",
+    mic: "Diktieren",
+    micStop: "Stopp",
+    micTranscribing: "Transkribiere…",
+    errorMic: "Mikrofon konnte nicht verwendet werden.",
     errorEmpty: "Beschreibe zuerst, was die KI tun soll.",
     errorGeneric: "Etwas ist schiefgelaufen. Versuch es erneut.",
     errorRate: "Zu viele Anfragen. Warte einen Moment.",
