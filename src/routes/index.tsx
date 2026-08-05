@@ -9,6 +9,8 @@ import {
   History,
   Image as ImageIcon,
   Loader2,
+  Mic,
+  MicOff,
   Moon,
   RotateCcw,
   Sparkles,
@@ -21,6 +23,8 @@ import logoAsset from "@/assets/prompty-mark.png.asset.json";
 import { DICTS, LANGUAGES, type LangCode } from "@/lib/i18n";
 import { DEFAULT_MODEL, MODELS } from "@/lib/models";
 import { generateFinalPrompt, getClarifyingQuestions } from "@/lib/prompty.functions";
+import { startRecording, type Recorder } from "@/lib/recorder";
+import { transcribeAudio } from "@/lib/transcribe.functions";
 
 export const Route = createFileRoute("/")({
   component: PromptyScreen,
@@ -87,6 +91,9 @@ function PromptyScreen() {
   const [dragging, setDragging] = useState(false);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [showHistory, setShowHistory] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [transcribing, setTranscribing] = useState(false);
+  const recorderRef = useRef<Recorder | null>(null);
 
   const imageInput = useRef<HTMLInputElement>(null);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -94,6 +101,7 @@ function PromptyScreen() {
 
   const askQuestions = useServerFn(getClarifyingQuestions);
   const writePrompt = useServerFn(generateFinalPrompt);
+  const transcribe = useServerFn(transcribeAudio);
 
   const t = DICTS[lang];
 
@@ -249,6 +257,36 @@ function PromptyScreen() {
     setQuestions(null);
     setResult("");
     setError("");
+  };
+
+  const toggleMic = async () => {
+    if (transcribing) return;
+    if (recording) {
+      const rec = recorderRef.current;
+      recorderRef.current = null;
+      setRecording(false);
+      if (!rec) return;
+      setTranscribing(true);
+      try {
+        const audio = await rec.stop();
+        const res = await transcribe({ data: { audio, lang } });
+        if (res.text) {
+          setIdea((prev) => (prev ? `${prev.trim()} ${res.text}` : res.text).slice(0, 2000));
+        }
+      } catch (e) {
+        setError(mapError(e));
+      } finally {
+        setTranscribing(false);
+      }
+      return;
+    }
+    setError("");
+    try {
+      recorderRef.current = await startRecording();
+      setRecording(true);
+    } catch {
+      setError(t.errorMic);
+    }
   };
 
   const busy = stage !== "idle";
@@ -460,6 +498,29 @@ function PromptyScreen() {
                 className="flex items-center gap-2 rounded-xl border border-border px-3.5 py-2.5 text-sm transition-colors hover:bg-accent"
               >
                 <FileText className="h-4 w-4" /> {t.file}
+              </button>
+              <button
+                type="button"
+                onClick={() => void toggleMic()}
+                disabled={transcribing}
+                aria-label={recording ? t.micStop : t.mic}
+                className={`flex items-center gap-2 rounded-xl border px-3.5 py-2.5 text-sm transition-colors disabled:opacity-70 ${
+                  recording
+                    ? "border-destructive/50 bg-destructive/10 text-destructive"
+                    : "border-border hover:bg-accent"
+                }`}
+              >
+                {transcribing ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : recording ? (
+                  <MicOff className="h-4 w-4" />
+                ) : (
+                  <Mic className="h-4 w-4" />
+                )}
+                {transcribing ? t.micTranscribing : recording ? t.micStop : t.mic}
+                {recording && (
+                  <span className="ml-0.5 h-2 w-2 animate-pulse rounded-full bg-destructive" />
+                )}
               </button>
             </div>
             <span className="text-xs text-muted-foreground">{idea.length}/2000</span>
